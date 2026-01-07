@@ -1,0 +1,98 @@
+---
+title: "Lab 1 - In Class"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Define Data
+
+```{r data}
+x <- 1:10
+y <- c(2, 4, 5, 8, 9, 11, 13, 14, 18, 20)
+categories <- c("A", "B", "C", "D")
+values <- c(25, 40, 15, 30)
+```
+
+## 1. Scatter Plot
+
+```{r scatter-plot}
+plot(x, y,
+     main = "Scatter Plot",
+     xlab = "X values",
+     ylab = "Y values",
+     col = "blue",
+     pch = 19)
+```
+
+## 2. Line Plot
+
+```{r line-plot}
+plot(x, y,
+     type = "l",
+     main = "Line Plot",
+     xlab = "X",
+     ylab = "Y",
+     col = "red",
+     lwd = 2)
+```
+
+## 3. Bar Plot
+
+```{r bar-plot}
+barplot(values,
+        names.arg = categories,
+        main = "Bar Plot",
+        col = c("coral", "steelblue", "seagreen", "gold"))
+```
+
+## 4. Histogram
+
+```{r histogram}
+data <- rnorm(100, mean = 50, sd = 10)
+hist(data,
+     main = "Histogram",
+     xlab = "Value",
+     col = "lightblue",
+     breaks = 10)
+```
+
+## 2x2 Plot Layout
+
+```{r multi-plot, fig.width=10, fig.height=10}
+par(mfrow = c(2, 2))
+
+# Scatter plot
+plot(x, y,
+     main = "Scatter Plot",
+     xlab = "X values",
+     ylab = "Y values",
+     col = "blue",
+     pch = 19)
+
+# Line plot
+plot(x, y,
+     type = "l",
+     main = "Line Plot",
+     xlab = "X",
+     ylab = "Y",
+     col = "red",
+     lwd = 2)
+
+# Bar plot
+barplot(values,
+        names.arg = categories,
+        main = "Bar Plot",
+        col = c("coral", "steelblue", "seagreen", "gold"))
+
+# Histogram
+hist(data,
+     main = "Histogram",
+     xlab = "Value",
+     col = "lightblue",
+     breaks = 10)
+
+par(mfrow = c(1, 1))
+```
